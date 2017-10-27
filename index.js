@@ -2,7 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import twilio from 'twilio';
-import 'dotenv/config'
+import dotenv from 'dotenv';
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 let app, twilioClient, isValid;
 
